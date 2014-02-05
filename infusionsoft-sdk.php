@@ -2,7 +2,7 @@
 
 /*
 Plugin Name: Infusionsoft SDK
-Version: 1.0.0
+Version: 1.0.2
 Description: Integrate with the Infusionsoft API using the Novak Solutions SDK. This plugin is a dependency for other Infusionsoft plugins, like the <a href="http://wordpress.org/plugins/infusionsoft-one-click-upsell/">Infusionsoft One-click Upsell</a> plugin.
 Author: Novak Solutions
 Author URI: http://novaksolutions.com/
@@ -20,7 +20,6 @@ try{
     // SDK didn't load.
 }
 
-register_activation_hook(__FILE__, 'infusionsoft_sdk_activate');
 add_action('admin_menu', 'infusionsoft_sdk_add_admin_menu');
 add_action('admin_init', 'infusionsoft_sdk_admin_init');
 add_action( 'admin_notices', 'infusionsoft_sdk_error' );
