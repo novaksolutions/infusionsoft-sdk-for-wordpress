@@ -9,13 +9,18 @@ Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Integrate with the Infusionsoft API using the Novak Solutions SDK. This plugin is a dependency for other Infusionsoft plugins.
+Integrate with the Infusionsoft API using the free Novak Solutions SDK. This plugin is a dependency for other Infusionsoft plugins.
 
 == Description ==
 
-Integrate with the Infusionsoft API using the free Novak Solutions SDK. This plugin is a dependency for other Infusionsoft plugins.
+Easily integrate with the Infusionsoft API using the free Novak Solutions SDK. This plugin is a dependency for other Infusionsoft plugins.
 
 Easily enter your Infusionsoft app name and API key. The full SDK will be available to any plugins that need it, or your own custom code.
+
+Several plugins require this plugin in order to function, such as:
+
+* [Infusionsoft Exit Optin](http://wordpress.org/plugins/infusionsoft-exit-optin/)
+* [Infusionsoft One-click Upsell](http://wordpress.org/plugins/infusionsoft-one-click-upsell/)
 
 == Changelog ==
 
