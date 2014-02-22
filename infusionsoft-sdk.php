@@ -57,8 +57,12 @@ function infusionsoft_sdk_admin_init(){
         'infusionsoft_sdk_settings',
         'infusionsoft_sdk_settings');
 
-    register_setting('infusionsoft_sdk_settings', 'infusionsoft_sdk_app_name', 'sanitize_text_field');
-    register_setting('infusionsoft_sdk_settings', 'infusionsoft_sdk_api_key', 'sanitize_text_field');
+    register_setting('infusionsoft_sdk_settings', 'infusionsoft_sdk_app_name', 'infusionsoft_sdk_sanitize');
+    register_setting('infusionsoft_sdk_settings', 'infusionsoft_sdk_api_key', 'infusionsoft_sdk_sanitize');
+}
+
+function infusionsoft_sdk_sanitize($value) {
+    return preg_replace("/[^a-zA-Z0-9]+/", "", $value);
 }
 
 function infusionsoft_sdk_callback_function_app_name() {

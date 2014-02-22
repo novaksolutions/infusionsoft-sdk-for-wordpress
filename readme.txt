@@ -21,6 +21,7 @@ Easily enter your Infusionsoft app name and API key. The full SDK will be availa
 
 = 1.0.4 =
 * Updated to latest Novak Solutions SDK
+* Improved app name and API key sanitation
 
 = 1.0.3 =
 * Updated to latest Novak Solutions SDK
