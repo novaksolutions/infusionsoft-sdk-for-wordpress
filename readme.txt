@@ -19,6 +19,9 @@ Easily enter your Infusionsoft app name and API key. The full SDK will be availa
 
 == Changelog ==
 
+= 1.0.4 =
+* Updated to latest Novak Solutions SDK
+
 = 1.0.3 =
 * Updated to latest Novak Solutions SDK
 
