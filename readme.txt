@@ -24,6 +24,10 @@ Several plugins require this plugin in order to function, such as:
 
 __Check out [Novak Solutions](http://novaksolutions.com/) for more free Infusionsoft tools!__
 
+== Screenshots ==
+
+1. All it requires is your app name and API key.
+
 == Changelog ==
 
 = 1.0.5 =
