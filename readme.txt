@@ -5,7 +5,7 @@ Author URI: http://novaksolutions.com/
 Plugin URI: http://novaksolutions.com/wordpress-plugins/infusionsoft-sdk/
 Requires at least: 2.7
 Tested up to: 3.8.1
-Stable tag: 1.0.5
+Stable tag: 1.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,12 @@ __Check out [Novak Solutions](http://novaksolutions.com/) for more free Infusion
 1. All it requires is your app name and API key.
 
 == Changelog ==
+
+= 1.0.7 =
+* Compatibility fix for PHP v5.2.x
+
+= 1.0.6 =
+* Version bump to fix SVN snafu
 
 = 1.0.5 =
 * Check if Infusionsoft credentials are set before loading SDK.
