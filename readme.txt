@@ -4,8 +4,8 @@ Tags: infusionsoft, sdk, api
 Author URI: http://novaksolutions.com/
 Plugin URI: http://novaksolutions.com/wordpress-plugins/infusionsoft-sdk/
 Requires at least: 2.7
-Tested up to: 4.0
-Stable tag: 1.0.9
+Tested up to: 4.0.1
+Stable tag: 1.0.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,10 @@ __Check out [Novak Solutions](http://novaksolutions.com/) for more free Infusion
 1. All it requires is your app name and API key.
 
 == Changelog ==
+
+= 1.0.10 =
+* Fixes issue with action sequences
+* Updated to latest Novak Solutions SDK
 
 = 1.0.9 =
 * MANDATORY UPDATE! This release includes the latest Infusionsoft PEM file.
