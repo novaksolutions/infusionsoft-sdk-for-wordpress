@@ -104,7 +104,7 @@ function infusionsoft_sdk_callback_function_app_name() {
  */
 function infusionsoft_sdk_callback_function_api_key() {
     echo '<input type="text" name="infusionsoft_sdk_api_key" value="' . get_option('infusionsoft_sdk_api_key') . '" size="45" /><br />';
-    echo '<span class="description"><a href="http://ug.infusionsoft.com/article/AA-00442/0/How-do-I-enable-the-Infusionsoft-API-and-generate-an-API-Key.html">Click here</a> for instructions on finding your API key.</span>';
+    echo '<span class="description"><a href="https://help.infusionsoft.com/userguides/get-started/tips-and-tricks/api-key">Click here</a> for instructions on finding your API key.</span>';
 }
 
 /**
