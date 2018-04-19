@@ -2,7 +2,7 @@
 
 /*
 Plugin Name: Infusionsoft SDK
-Version: 1.0.12
+Version: 1.0.13
 Description: Integrate with the Infusionsoft API using the Novak Solutions SDK. This plugin is a dependency for other Infusionsoft plugins, like the <a href="http://wordpress.org/plugins/infusionsoft-one-click-upsell/">Infusionsoft One-click Upsell</a> plugin.
 Author: Novak Solutions
 Author URI: http://novaksolutions.com/
@@ -19,21 +19,49 @@ if( !class_exists('Infusionsoft_Classloader') ){
 /**
  * Check if options are set properly, and add credentials to SDK if they are.
  */
-if (get_option('infusionsoft_sdk_app_name') && get_option('infusionsoft_sdk_api_key'))
+if ( infusionsoft_get_app_name() && infusionsoft_get_api_key() )
 {
     try{
-        Infusionsoft_AppPool::addApp(new Infusionsoft_App(get_option('infusionsoft_sdk_app_name') . '.infusionsoft.com', get_option('infusionsoft_sdk_api_key')));
+        Infusionsoft_AppPool::addApp(new Infusionsoft_App(infusionsoft_get_app_name() . '.infusionsoft.com', infusionsoft_get_api_key()));
     } catch(Infusionsoft_Exception $e) {
         // SDK didn't load.
     }
 }
 
 /**
+ * Infusionsoft connection credentials
+ * Connection details can be provided by PHP constant in your wp-config.php file
+ * @return array
+ */
+function infusionsoft_get_connection_creds() {
+    return array(
+        'app_name' => defined('INFUSIONSOFT_APP_NAME') ? INFUSIONSOFT_APP_NAME : get_option('infusionsoft_sdk_app_name'),
+        'api_key' => defined('INFUSIONSOFT_API_KEY') ? INFUSIONSOFT_API_KEY : get_option('infusionsoft_sdk_api_key')
+    );
+}
+
+/**
+ * Get the Infusionsoft App Name
+ * @return string
+ */
+function infusionsoft_get_app_name() {
+    return infusionsoft_get_connection_creds()['app_name'];
+}
+
+/**
+ * Get the Infusionsoft API Key
+ * @return string
+ */
+function infusionsoft_get_api_key() {
+    return infusionsoft_get_connection_creds()['api_key'];
+}
+
+/**
  * Display error message if app name and API key aren't set.
  */
 function infusionsoft_sdk_error() {
-    if(get_option('infusionsoft_sdk_app_name') == '' || get_option('infusionsoft_sdk_api_key') == ''){
-        echo "<div class=\"error\"><p><strong>Please set your Infusionsoft SDK app name and API key on the <a href=\"" . admin_url( 'options-general.php?page=infusionsoft-sdk/infusionsoft-sdk.php' ) . "\">settings page.</a></strong></p></div>";
+    if( !infusionsoft_get_app_name() || !infusionsoft_get_api_key() ) {
+        echo "<div class=\"error\"><p><strong>Please set your Infusionsoft SDK app name and API key on the <a href=\"" . admin_url( 'options-general.php?page=infusionsoft-sdk/infusionsoft-sdk.php' ) . "\">settings page or in your <pre>wp-config.php</pre> file.</a></strong></p></div>";
     }
 }
 add_action('admin_notices', 'infusionsoft_sdk_error');
@@ -136,11 +164,20 @@ function infusionsoft_sdk_display_link_back(){
 function infusionsoft_sdk_display_admin_page(){
     echo '<h2>Infusionsoft SDK Settings</h2>';
 
-    echo '<form method="POST" action="options.php">';
-    settings_fields('infusionsoft_sdk_settings');   //pass slug name of page
-    do_settings_sections('infusionsoft_sdk_settings');    //pass slug name of page
-    submit_button();
-    echo '</form>';
+    if( !defined('INFUSIONSOFT_APP_NAME') && !defined('INFUSIONSOFT_API_KEY') ) {
+        echo '<form method="POST" action="options.php">';
+        settings_fields('infusionsoft_sdk_settings');   //pass slug name of page
+        do_settings_sections('infusionsoft_sdk_settings');    //pass slug name of page
+        submit_button();
+        echo '</form>';
+    }
+    else {
+        echo "<p>Your Infusionsoft connection details are set via PHP constant; usually in your wp-config.php file.</p>";
+        echo "<ul>";
+        echo "<li><strong>App Name:</strong> " . INFUSIONSOFT_APP_NAME . "</li>";
+        echo "<li><strong>API Key:</strong> " . str_repeat('*', strlen(INFUSIONSOFT_API_KEY)-4) . substr(INFUSIONSOFT_API_KEY, -4) . "</li>";
+        echo "</ul>";
+    }
 
     infusionsoft_sdk_display_link_back();
 }
