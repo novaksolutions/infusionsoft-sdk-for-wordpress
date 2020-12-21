@@ -3,7 +3,7 @@
 	"description" : "Connect WordPress to the Infusionsoft platform",
 	"type" : "wordpress-plugin",
 	"homepage" : "https://novaksolutions.com",
-	"version" : "v2014-09-11",
+	"version" : "1.0.14",
 	"license" : "GPLv2 or later",
 	"keywords" : [
 		"Keap/Infusionsoft",
