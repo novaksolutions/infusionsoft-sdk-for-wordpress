@@ -1,0 +1,26 @@
+{
+	"name" : "novaksolutions/infusionsoft-sdk-for-wordpress",
+	"description" : "Connect WordPress to the Infusionsoft platform",
+	"type" : "wordpress-plugin",
+	"homepage" : "https://novaksolutions.com",
+	"version" : "v2014-09-11",
+	"license" : "GPLv2 or later",
+	"keywords" : [
+		"Keap/Infusionsoft",
+		"WordPress"
+	],
+	"authors" : [{
+			"name" : "Novak Solutions",
+			"homepage" : "https://novaksolutions.com"
+		}
+	],
+	"config" : {
+		"vendor-dir" : "../infusionsoft-sdk/vendor"
+	},
+	"require" : {
+		"php" : ">=5.7",
+		"ext-curl" : "*",
+		"neitanod/forceutf8" : "~2.0",
+		"novaksolutions/infusionsoft-php-sdk" : "dev-master"
+	}
+}

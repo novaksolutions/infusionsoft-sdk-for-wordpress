@@ -9,11 +9,17 @@ Author URI: http://novaksolutions.com/
 Plugin URI: http://novaksolutions.com/wordpress-plugins/infusionsoft-sdk/
 */
 
-/**
- * Load Infusionsoft SDK if it isn't already loaded
- */
-if( !class_exists('Infusionsoft_Classloader') ){
-    require_once('Infusionsoft/infusionsoft.php');
+
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
+if (is_readable(__DIR__ . '/vendor/autoload.php')) {
+	require_once __DIR__ . '/vendor/autoload.php';
+	if (! class_exists('Infusionsoft_Classloader')) {
+		require_once __DIR__ . '/vendor/novaksolutions/infusionsoft-php-sdk/Infusionsoft/infusionsoft.php';
+	}
 }
 
 /**
