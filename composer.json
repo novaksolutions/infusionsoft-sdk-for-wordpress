@@ -14,9 +14,6 @@
 			"homepage" : "https://novaksolutions.com"
 		}
 	],
-	"config" : {
-		"vendor-dir" : "../infusionsoft-sdk/vendor"
-	},
 	"require" : {
 		"php" : ">=5.7",
 		"ext-curl" : "*",

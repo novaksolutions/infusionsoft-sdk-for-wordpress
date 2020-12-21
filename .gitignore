@@ -2,3 +2,4 @@ Infusionsoft/cache/*.cache
 /SVN/
 /infusionsoft-sdk.zip
 /.project
+/vendor/
