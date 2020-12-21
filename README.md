@@ -2,11 +2,12 @@ This repository is the source for [Infusionsoft SDK WordPress plugin](https://wo
 
 HOWTO Use
 
-1. Checkout the SVN repository
+1. Checkout the SVN repository  
   `svn co https://plugins.svn.wordpress.org/infusionsoft-sdk SVN/infusionsoft-sdk`  
   Put the repository in a subdirectory to reduce confusion. If you put it elsewhere, update `copy-to-svn.sh`
-1. Install or Update library dependencies
+1. Install or Update library dependencies  
   `composer install -o` or `composer update -o`
-1. Update the SVN repository
+1. Update `trunk` in the SVN working copy  
   `./copy-to-svn.sh`  
-  The script will create a zip file that can be used to install the plugin. 
+  The script will create a zip file that can be used to install the development version, aka `trunk` via wp-cli:  
+  `wp @local plugin install --force --activate infusionsoft-sdk.zip`
