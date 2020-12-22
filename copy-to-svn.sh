@@ -1,18 +1,22 @@
 #!/bin/zsh
-here=`pwd`
+alias cd="cd"
 alias cp="cp -R"
+alias find="find"
+alias mv="mv"
 alias svn="svn"
-alias rsync="rsync"
+alias rsync="rsync -rav"
+alias unzip="unzip -tq"
+alias zip="zip -qr"
 project="infusionsoft-sdk-for-wordpress"
 slug="infusionsoft-sdk"
-root="/Users/jeffreychimene/wordpress"
+SVN="SVN"
+here=`pwd`
+root=`echo "$(dirname $here)"`
 #
 # Refresh trunk
 #
 cd $root/$project
-echo rsync -av --progress . $root/$project/SVN/$slug/trunk/
-# 
-rsync -rav . $root/$project/SVN/$slug/trunk/ \
+rsync . $root/$project/$SVN/$slug/trunk/ \
 --exclude '.*' \
 --exclude 'composer.json' \
 --exclude 'composer.lock' \
@@ -25,24 +29,24 @@ rsync -rav . $root/$project/SVN/$slug/trunk/ \
 --exclude '*bin*' \
 --exclude '*SVN*' \
 --exclude '*/example*' \
---exclude '*infusionsoft-php-sdk/composer*' \
 --exclude '*/utilities*' \
---exclude '*infusionsoft-php-sdk/config.sample.php*' \
---exclude '*infusionsoft-php-sdk/style.css*' \
+--exclude '*infusionsoft-php-sdk/composer*' \
+--exclude '*Infusionsoft/config.sample.php*' \
+--exclude '*Infusionsoft/style.css*' \
 --exclude '*forceutf8/resources*' \
 --exclude '*forceutf8/composer.json*' 
 
 #
 # Diddle svn
 #
-cd $root/$project/SVN/$slug
+cd $root/$project/$SVN/$slug
 mv trunk $slug
 #
 # Create zip
 #
-zip -qr $slug.zip $slug
-unzip -tq *zip
-find *zip -exec mv {} $here \;
+zip $slug.zip $slug
+unzip *zip
+mv *zip $here
 #
 # Diddle svn
 #
@@ -51,4 +55,4 @@ mv $slug trunk
 # Done
 #
 cd $here
-svn status $root/$project/SVN/$slug
+svn status $root/$project/$SVN/$slug
