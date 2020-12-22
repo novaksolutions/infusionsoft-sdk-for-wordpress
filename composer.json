@@ -14,6 +14,11 @@
 			"homepage" : "https://novaksolutions.com"
 		}
 	],
+	"autoload" : {
+		"classmap" : [
+			"vendor/novaksolutions/infusionsoft-php-sdk/Infusionsoft"
+		]
+	},
 	"require" : {
 		"php" : ">=5.7",
 		"ext-curl" : "*",

@@ -33,6 +33,7 @@ rsync . $root/$project/$SVN/$slug/trunk/ \
 --exclude '*infusionsoft-php-sdk/composer*' \
 --exclude '*Infusionsoft/config.sample.php*' \
 --exclude '*Infusionsoft/style.css*' \
+--exclude '*Infusionsoft/infusionsoft.php*' \
 --exclude '*forceutf8/resources*' \
 --exclude '*forceutf8/composer.json*' 
 
